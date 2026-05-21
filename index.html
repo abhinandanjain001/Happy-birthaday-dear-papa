@@ -83,6 +83,11 @@
         }
     </style>
 </head>
+<!-- Add just before </body> tag -->
+<audio id="birthdayAudio" loop>
+    <source src="acoustic-guitar.mp3" type="audio/mpeg">
+    <!-- Replace above link with your own music file -->
+</audio>
 <body class="bg-gradient-to-br from-pink-100 via-rose-100 to-purple-100 min-h-screen overflow-x-hidden">
 
     <!-- Background Flowers -->
@@ -95,6 +100,14 @@
                 Happy Birthday Papa!
             </h1>
             <p class="text-xl text-rose-500 mt-2">My Lovely Father • My Hero ❤️</p>
+            <!-- Inside <header> section, after the <p> tag -->
+<div class="flex justify-center mt-6">
+    <button onclick="toggleMusic()" id="musicBtn"
+            class="flex items-center gap-3 bg-white hover:bg-pink-50 text-pink-600 px-6 py-3 rounded-full shadow-lg transition-all border border-pink-200">
+        <i id="musicIcon" class="fas fa-play text-xl"></i>
+        <span id="musicText" class="font-medium">Play Birthday Music</span>
+    </button>
+</div>
         </header>
 
         <!-- Hero Section -->
@@ -266,6 +279,41 @@
                 launchConfetti();
             }
         });
+        
     </script>
+    <script>
+    const audio = document.getElementById('birthdayAudio');
+    const musicBtn = document.getElementById('musicBtn');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicText = document.getElementById('musicText');
+    let isPlaying = false;
+
+    function toggleMusic() {
+        if (isPlaying) {
+            audio.pause();
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-play');
+            musicText.textContent = "Play Birthday Music";
+        } else {
+            audio.play().catch(err => {
+                console.log("Autoplay prevented. User needs to interact.");
+            });
+            musicIcon.classList.remove('fa-play');
+            musicIcon.classList.add('fa-pause');
+            musicText.textContent = "Playing... ❤️";
+        }
+        isPlaying = !isPlaying;
+    }
+
+    // Optional: Auto play after first user interaction (better browser support)
+    document.addEventListener('click', () => {
+        if (!isPlaying && audio.paused) {
+            // Uncomment the line below if you want auto-play after first click
+            // audio.play();
+        }
+    }, { once: true });
+
+    // Rest of your existing script remains the same...
+</script>
 </body>
 </html>
