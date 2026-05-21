@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Papa ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap');
+
+        body {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .title-font {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .heart {
+            position: relative;
+            width: 180px;
+            height: 160px;
+            background: #e0245e;
+            box-shadow: 0 0 40px #f43f5e;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 160px;
+            background: #e0245e;
+            border-radius: 50%;
+            box-shadow: 0 0 40px #f43f5e;
+        }
+
+        .heart:before {
+            top: -80px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: 80px;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 10px #f472b6);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(15deg); }
+        }
+
+        .photo-frame {
+            transition: all 0.4s ease;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: confetti-fall 6s linear forwards;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-rose-100 to-purple-100 min-h-screen overflow-x-hidden">
+
+    <!-- Background Flowers -->
+    <div id="flowers" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <div class="relative z-10">
+        <!-- Header -->
+        <header class="text-center py-8 bg-white/70 backdrop-blur-md shadow-md">
+            <h1 class="text-5xl md:text-6xl title-font text-pink-600 tracking-wide">
+                Happy Birthday Papa!
+            </h1>
+            <p class="text-xl text-rose-500 mt-2">My Lovely Father • My Hero ❤️</p>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center relative px-4">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Central Heart -->
+                <div class="flex justify-center mb-12">
+                    <div class="heart rounded-full flex items-center justify-center text-white text-6xl shadow-2xl">
+                        <span class="relative z-10 text-7xl">❤️</span>
+                    </div>
+                </div>
+
+                <h2 class="text-6xl md:text-7xl title-font text-rose-700 mb-6 leading-tight">
+                    To the Best Father in the World
+                </h2>
+                
+                <p class="text-2xl md:text-3xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                    Thank you for your endless love, guidance, and sacrifices.<br>
+                    You are my strength, my inspiration, and my greatest blessing.
+                </p>
+
+                <div class="mt-12 flex justify-center gap-8 flex-wrap">
+                    <button onclick="launchConfetti()" 
+                            class="px-10 py-4 bg-pink-600 hover:bg-pink-700 text-white text-xl rounded-full shadow-xl transition-all flex items-center gap-3">
+                        <i class="fas fa-heart"></i>
+                        Celebrate With Me
+                    </button>
+                </div>
+            </div>
+
+            <!-- Floating Photos -->
+            <div class="absolute top-20 left-10 hidden lg:block">
+                <div class="photo-frame bg-white p-3 rounded-3xl shadow-2xl rotate-[-8deg] w-52">
+                    <img id="photo1" src="WhatsApp Image 2026-05-21 at 23.50.55.jpeg" 
+                         class="w-full h-52 object-cover rounded-2xl" alt="Papa 1">
+                </div>
+            </div>
+
+            <div class="absolute bottom-32 right-12 hidden lg:block">
+                <div class="photo-frame bg-white p-3 rounded-3xl shadow-2xl rotate-[8deg] w-52">
+                    <img id="photo2" src="WhatsApp Image 2026-05-21 at 23.50.56 (1).jpeg" 
+                         class="w-full h-52 object-cover rounded-2xl" alt="Papa 2">
+                </div>
+            </div>
+
+            <div class="absolute top-1/3 right-20 hidden xl:block">
+                <div class="photo-frame bg-white p-3 rounded-3xl shadow-2xl rotate-[-5deg] w-48">
+                    <img id="photo3" src="WhatsApp Image 2026-05-21 at 23.50.57.jpeg" 
+                         class="w-full h-48 object-cover rounded-2xl" alt="Papa 3">
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory Gallery -->
+        <section class="py-20 bg-white/60 backdrop-blur">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-5xl title-font text-center text-rose-600 mb-12">Cherished Moments</h2>
+                
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="photo-frame bg-white rounded-3xl overflow-hidden shadow-xl">
+                        <img src="WhatsApp Image 2026-05-21 at 23.50.56 (1).jpeg" class="w-full h-80 object-cover" alt="Memory 1">
+                        <div class="p-6 text-center">
+                            <p class="text-xl text-gray-700">"Your smile lights up my world"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="photo-frame bg-white rounded-3xl overflow-hidden shadow-xl">
+                        <img src="WhatsApp Image 2026-05-21 at 23.50.55.jpeg" class="w-full h-80 object-cover" alt="Memory 2">
+                        <div class="p-6 text-center">
+                            <p class="text-xl text-gray-700">"The strongest man I know"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="photo-frame bg-white rounded-3xl overflow-hidden shadow-xl">
+                        <img src="WhatsApp Image 2026-05-21 at 23.50.57.jpeg" class="w-full h-80 object-cover" alt="Memory 3">
+                        <div class="p-6 text-center">
+                            <p class="text-xl text-gray-700">"Forever my hero"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Message -->
+        <section class="py-24 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="text-6xl mb-8">❤️</div>
+                <p class="text-3xl leading-relaxed text-gray-700 italic">
+                    Papa, on your special day, I want you to know how deeply you are loved and appreciated. 
+                    You have given me the greatest gift — your unconditional love. 
+                    May this year bring you all the joy and peace you deserve.
+                </p>
+                <p class="mt-10 text-2xl title-font text-pink-600">— Your Loving Child</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-12 bg-pink-900 text-white">
+            <p class="text-2xl title-font">Made with endless love for my Papa ❤️</p>
+            <p class="mt-4">Happy Birthday • 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tailwind script already loaded via CDN
+
+        // Create floating flowers
+        function createFlowers() {
+            const flowersContainer = document.getElementById('flowers');
+            const emojis = ['🌸', '🌺', '🌹', '🌷', '💐', '🌼'];
+            
+            for (let i = 0; i < 35; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.top = Math.random() * 100 + 'vh';
+                flower.style.animationDelay = '-' + Math.random() * 15 + 's';
+                flower.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
+                
+                flowersContainer.appendChild(flower);
+            }
+        }
+
+        // Confetti function
+        function launchConfetti() {
+            const colors = ['#ec4899', '#f43f5e', '#c026d3', '#eab308', '#22c55e'];
+            
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confetti.style.animationDuration = (4 + Math.random() * 5) + 's';
+                confetti.style.opacity = Math.random() + 0.5;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 8000);
+            }
+        }
+
+        // Replace these image URLs with your actual father’s photos
+        function setRealPhotos() {
+            // Example: Replace with your own image links
+            // document.getElementById('photo1').src = "https://your-link-to-photo1.jpg";
+            // document.getElementById('photo2').src = "https://your-link-to-photo2.jpg";
+            // document.getElementById('photo3').src = "https://your-link-to-photo3.jpg";
+        }
+
+        // Initialize everything
+        window.onload = function() {
+            createFlowers();
+            setRealPhotos();
+            
+            // Auto celebrate after 2 seconds
+            setTimeout(() => {
+                launchConfetti();
+            }, 1800);
+        };
+
+        // Click anywhere on hero to trigger confetti
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('section') && Math.random() > 0.7) {
+                launchConfetti();
+            }
+        });
+    </script>
+</body>
+</html>
